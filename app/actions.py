@@ -1,5 +1,5 @@
 from datetime import datetime
-from memory import carregar_memoria, salvar_memoria
+from memory import carregar_memoria, salvar_memoria, carregar_historico, salvar_historico
 
 
 def executar(acao, comando):
@@ -38,6 +38,20 @@ def executar(acao, comando):
     if acao == "OPEN_YOUTUBE":
         print("Luna: Abrindo YouTube...")
         return
+    
+    if acao == "SHOW_HISTORY":
 
+        historico = carregar_historico()
+
+    if not historico:
+        print("Luna: Nenhum comando registrado.")
+        return
+
+    print("Luna: Histórico:")
+
+    for i, item in enumerate(historico[-10:], start=1):
+        print(f"{i}. {item}")
+
+    return
 
     print("Luna: Não entendi.")
