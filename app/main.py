@@ -13,5 +13,4 @@ while True:
         break
 
     acao = interpretar(comando)
-
-    executar(acao)
+    executar(acao, comando)
